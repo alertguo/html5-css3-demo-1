@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>太极图</title>
+    <style>
+      body {
+        background: #eee;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @keyframes xxx {
+        from {
+          transform: rotate(0deg);
+        } /*开始--零度，from也可写成0%*/
+        to {
+          transform: rotate(360deg); /*结束--360度，to也可写成100%*/
+        } /*使用animation动画必须要加的@keyframes+动画名*/
+      }
+      #太极 {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%; /*大于等于50%为圆形*/
+        position: relative; /*定位--作为absolute的定位基准*/
+        overflow: hidden; /*超出部分隐藏,使其显示出来的为圆形*/
+        animation: 10s xxx linear infinite; /*动画--时长 动画名 过渡方式线性 次数一直重复*/
+        box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.75); /*搜索box shadow generator可模拟--加阴影*/
+      }
+      @media (max-width: 500px) {
+        /*media语法，在最大宽度小于500时加上下面代码,基本就是带像素的全部除以二*/
+        #太极 {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      #太极 > div:first-child/*选择器--第一个用first-child*/ {
+        width: 50%;
+        height: 100%;
+        background: black;
+        position: absolute; /*绝对定位*/
+        left: 0;
+      }
+      #太极 > div:nth-child(2)/*选择器--中间用nth-child(数字)，最后一个用last-child*/ {
+        width: 50%;
+        height: 100%;
+        background: white;
+        position: absolute;
+        right: 0;
+      }
+      #太极 > div:nth-child(3) {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 50%;
+        margin-left: -100px; /*absolute用left:50%;+负margin使其居中*/
+        border-radius: 50%;
+        background: black;
+      }
+      @media (max-width: 500px) {
+        #太极 > div:nth-child(3) {
+          width: 100px;
+          height: 100px;
+          margin-left: -50px;
+        }
+      }
+      #太极 > div:nth-child(4) {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 50%;
+        margin-left: -100px;
+        bottom: 0;
+        border-radius: 50%;
+        background: white;
+      }
+      @media (max-width: 500px) {
+        #太极 > div:nth-child(4) {
+          width: 100px;
+          height: 100px;
+          margin-left: -50px;
+        }
+      }
+      #太极 > div:nth-child(5) {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        top: 75px;
+        margin-left: -25px;
+        border-radius: 50%;
+        background: white;
+      }
+      @media (max-width: 500px) {
+        #太极 > div:nth-child(5) {
+          width: 25px;
+          height: 25px;
+          top: 37.5px;
+          margin-left: -12.5px;
+        }
+      }
+      #太极 > div:nth-child(6) {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        bottom: 75px;
+        margin-left: -25px;
+        border-radius: 50%;
+        background: black;
+      }
+      @media (max-width: 500px) {
+        #太极 > div:nth-child(6) {
+          width: 25px;
+          height: 25px;
+          bottom: 37.5px;
+          margin-left: -12.5px;
+        }
+      }
+      #太极-wrapper {
+        border: 1px solid red;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #太极-描述 {
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="太极-wrapper">
+      <div id="太极">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div id="太极-描述">
+        道可道非常道
+      </div>
+    </div>
+  </body>
+</html>
